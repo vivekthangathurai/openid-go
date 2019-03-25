@@ -22,6 +22,13 @@ func BuildRedirectURL(opEndpoint, opLocalID, claimedID, returnTo, realm string) 
 	values.Add("openid.ns", "http://specs.openid.net/auth/2.0")
 	values.Add("openid.mode", "checkid_setup")
 	values.Add("openid.return_to", returnTo)
+	values.Add("openid.ext1.if_available", "uuid,email,firstName,lastName")
+	values.Add("openid.ns.ext1","http://openid.net/srv/ax/1.0")
+	values.Add("openid.ext1.mode","fetch_request")
+	values.Add("openid.ext1.type.uuid","https://www.appdirect.com/schema/user/uuid")
+	values.Add("openid.ext1.type.email","http://axschema.org/contact/email")
+	values.Add("openid.ext1.type.firstName","http://axschema.org/namePerson/first")
+	values.Add("openid.ext1.type.lastName","http://axschema.org/namePerson/last")
 
 	// 9.1.  Request Parameters
 	// "openid.claimed_id" and "openid.identity" SHALL be either both present or both absent.
